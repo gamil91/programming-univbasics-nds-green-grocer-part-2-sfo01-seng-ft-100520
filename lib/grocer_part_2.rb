@@ -8,7 +8,6 @@ def apply_coupons(cart, coupons)
     cart_item = find_item_by_name_in_collection(coupon_hash[:item], cart)
     
       if cart_item && cart_item[:count] >= coupon_hash[:num]
-
           cart_item[:count] = cart_item[:count] - coupon_hash[:num]
   
           cart << {
@@ -24,7 +23,6 @@ end
 
 def apply_clearance(cart)
   cart.each do |item|
-  
     if item[:clearance] == TRUE
       discount = item[:price] * (20.to_f/100)
       item[:price] = item[:price] - discount.round(2)
